@@ -138,8 +138,8 @@ LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
 
 CSRF_TRUSTED_ORIGINS = [
-  "https://*.app.github.dev", # Solo si utiliza Codespaces
-  "https://localhost:8000",
-  "http://127.0.0.1:8000",
-  "https://*.up.railway.app",
+    "https://*.up.railway.app",
+    "https://*.app.github.dev", # Solo si utiliza Codespaces
+    "https://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
