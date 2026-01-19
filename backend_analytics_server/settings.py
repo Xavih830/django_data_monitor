@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-t94-g((kc7vc$^%xygu)vwm&d^9#m!$v(84y$sudwjc3%%@@h*
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "*",
+    ".up.railway.app",
 ]
 
 # Application definition
@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,11 +125,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = BASE_DIR / 'assets'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
-
 API_URL = 'https://xavih830.pythonanywhere.com/landing/api/index/'
 
 LOGIN_URL = '/login/'
@@ -137,5 +140,6 @@ LOGIN_REDIRECT_URL = '/'
 CSRF_TRUSTED_ORIGINS = [
   "https://*.app.github.dev", # Solo si utiliza Codespaces
   "https://localhost:8000",
-  "http://127.0.0.1:8000"
+  "http://127.0.0.1:8000",
+  "https://*.up.railway.app",
 ]
